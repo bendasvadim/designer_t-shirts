@@ -7,6 +7,13 @@
         <script src="javascript.js"></script>
         <link rel="stylesheet" href="css/jquery.Jcrop.min.css" type="text/css" />
         <style>
+            h4
+            {
+                text-align: center;
+                border-bottom: 1px solid black;
+                padding: 5px;
+                margin-top: -5px;
+            }
             #container
             {
                 width: 900px;
@@ -70,6 +77,16 @@
             {
                 margin: 0 auto;
             }
+            #cont_result
+            {
+                width: 900px;
+                height: auto;
+                min-height: 200px;
+                margin: 0 auto;
+                border: 1px solid black;
+                margin-top: 15px; 
+                padding: 20px;
+            }
         </style>
     </head>
     <body>
@@ -88,13 +105,13 @@
                     <canvas width="297px" height="370px" id="drawingCanvas">
                     </canvas>
                 </div>
+                <div style="width: 100%; text-align: center;">
                 <a href="#" id="upload-button" >Select the image</a>
                 <input type="file" id="design-upload" style="display: none;" />
                 <a href="" id="saveimage">Save image</a>
+                </div>
             </div>
         </div>
-        
-        
     </body>
 </html>
 

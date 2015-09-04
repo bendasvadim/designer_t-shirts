@@ -41,9 +41,28 @@ $(document).ready(function(){
                     canvas.add(imgInstance);
                     
                     $('#saveimage').click(function() {
-                       window.open(image.src,"tfract_save2")
-                       window.open(document.getElementById("drawingCanvas").toDataURL("image/png"),"tfract_save");;
-                       return false;
+                       canvas.deactivateAll().renderAll();
+                       var strDataURI = canvas.toDataURL();
+                       strDataURI = strDataURI.substr(22, strDataURI.length);
+                       
+                       $.ajax({
+                           type: "POST",
+                           url: "saver.php",
+                           data: ({
+                               image        : image.src,
+                               generated    : document.getElementById("drawingCanvas").toDataURL("png")
+                           }),
+                           success: function(msg)
+                           {
+                                location.reload();
+                           }
+                       });
+                       
+                       //       OPEN IN WINDOW OF BROWSER
+                       //window.open(image.src,"tfract_save2"); // FILE OF IMAGE 
+                       //window.open(document.getElementById("drawingCanvas").toDataURL("image/png"),"tfract_save"); // GENERATED IMAGE
+                       //       OPEN IN WINDOW OF BROWSER
+                        return false;
                    });
                  }
              }
